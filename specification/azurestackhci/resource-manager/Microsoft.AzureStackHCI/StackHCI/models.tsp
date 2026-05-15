@@ -8387,7 +8387,7 @@ model ContentPayload {
 /**
  * Properties for creating GPU partitions for virtualization and workload isolation.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model GpuCreatePartitionJobProperties extends ClusterJobProperties {
   /** ClusterJob Type to support polymorphic resource. */
   jobType: HciJobType.GpuCreatePartition;
@@ -8401,7 +8401,7 @@ model GpuCreatePartitionJobProperties extends ClusterJobProperties {
 /**
  * Properties for switching GPU mode between DDA and GPU-P for different workload requirements.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model GpuSwitchModeJobProperties extends ClusterJobProperties {
   /** ClusterJob Type to support polymorphic resource. */
   jobType: HciJobType.GpuSwitchMode;
@@ -8415,7 +8415,7 @@ model GpuSwitchModeJobProperties extends ClusterJobProperties {
 /**
  * GPU modes supported.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 union GpuMode {
   string,
 
@@ -8435,13 +8435,13 @@ union GpuMode {
  * List of GPUs in Edge Machine.
  */
 #suppress "@azure-tools/typespec-azure-core/casing-style" "model nomenclature"
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model GpuList is Azure.Core.Page<EdgeMachineGpu>;
 
 /**
  * GPU resource properties
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model EdgeMachineGpuProperties {
   /**
    * The provisioning state of the GPU.
@@ -8525,7 +8525,7 @@ model EdgeMachineGpuProperties {
 /**
  * GPU Vendor Type supported.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 union GpuVendorType {
   string,
 
@@ -8542,7 +8542,7 @@ union GpuVendorType {
 /**
  * Represents the details of a workload.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model WorkloadDetails {
   /**
    * workload Id to which GPU is assigned.
@@ -8578,7 +8578,7 @@ model WorkloadDetails {
 /**
  * Represents the details of the GPU specifically in DDA mode.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model DdaDetails {
   /**
    * It is a resource pool on each server containing the clustered GPU resources.
@@ -8596,7 +8596,7 @@ model DdaDetails {
 /**
  * Represents the details of the GPU specifically in GPU-P mode.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model GpuPartitionDetails {
   /**
    * The name used by Hyper-V commandlets for GPU partitioning
@@ -8668,7 +8668,7 @@ model GpuPartitionDetails {
 /**
  * Represents the GPU partition details
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model PartitionDetails {
   /**
    * Unique identifier for the partition
@@ -8712,7 +8712,7 @@ model PartitionDetails {
 /**
  *EdgeMachine GPU Job properties
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 @discriminator("jobType")
 model EdgeMachineGpuJobProperties {
   /**
@@ -8778,7 +8778,7 @@ model EdgeMachineGpuJobProperties {
 /**
  * GPU Job Type supported for Edge Machine GPU operations.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 union EdgeMachineGpuJobType {
   string,
 
@@ -8806,7 +8806,7 @@ union EdgeMachineGpuJobType {
 /**
  * Properties for creating GPU partitions for virtualization and workload isolation.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model CreatePartitionGpuJobProperties extends EdgeMachineGpuJobProperties {
   /**
    * Type of GPU job to be performed.
@@ -8822,7 +8822,7 @@ model CreatePartitionGpuJobProperties extends EdgeMachineGpuJobProperties {
 /**
  * Properties for switching GPU mode between DDA and GPU-P for different workload requirements.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model SwitchModeGpuJobProperties extends EdgeMachineGpuJobProperties {
   /**
    * Type of GPU job to be performed.
@@ -8838,7 +8838,7 @@ model SwitchModeGpuJobProperties extends EdgeMachineGpuJobProperties {
 /**
  * Properties for assigning GPU partition to a specific workload or virtual machine.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model AssignPartitionGpuJobProperties extends EdgeMachineGpuJobProperties {
   /**
    * Type of GPU job to be performed.
@@ -8854,7 +8854,7 @@ model AssignPartitionGpuJobProperties extends EdgeMachineGpuJobProperties {
 /**
  * Properties for removing GPU partition and freeing up resources for other workloads.
  */
-@added(Versions.v2026_03_15_preview)
+@added(Versions.v2026_05_01_preview)
 model RemovePartitionGpuJobProperties extends EdgeMachineGpuJobProperties {
   /**
    * Type of GPU job to be performed.
